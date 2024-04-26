@@ -2,14 +2,15 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import auth from '../firebase/firebase.config'
-import { GoogleAuthProvider } from "firebase/auth/cordova";
+import { GoogleAuthProvider } from "firebase/auth";
 
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+
     const [user, setUser] = useState();
-    const googleProvider = new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
 
 
     const createUser = (email, password) => {
@@ -21,7 +22,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const googleSignIn = () => {
-        return signInWithPopup(auth, googleProvider);
+        return signInWithPopup(auth, provider);
     }
 
 
@@ -32,7 +33,8 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
-            console.log('Current User onAuthChange', user)
+            console.log('Current User onAuthChange', user);
+
             setUser(user)
         });
         return () => {

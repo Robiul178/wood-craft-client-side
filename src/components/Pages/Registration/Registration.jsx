@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const Registration = () => {
@@ -19,6 +19,12 @@ const Registration = () => {
         const photo = form.get('photo');
         const password = form.get('password');
 
+        const userData = {
+            name: name,
+            email: email,
+            photo: photo,
+            password: password
+        }
 
         createUser(email, password)
             .then((userCredential) => {
@@ -33,6 +39,17 @@ const Registration = () => {
                 console.log(errorMessage)
             });
 
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('from registration', data)
+            })
         form.reset();
     }
 
@@ -75,6 +92,9 @@ const Registration = () => {
                             <button className="btn btn-primary">Registration</button>
                         </div>
                     </form>
+                    <div className="text-center">
+                        <p>If you have already an acoount ,<Link to='/login' className="text-blue-700 underline">please login here</Link> </p>
+                    </div>
                 </div>
             </div>
         </div>

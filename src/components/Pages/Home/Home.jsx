@@ -1,6 +1,6 @@
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import image1 from '../../../assets/g1.jpg'
-import image2 from '../../../assets/g2.jpg'
+import image2 from '../../../assets/g4.jpg'
 import image3 from '../../../assets/g3.jpg'
 
 const Home = () => {

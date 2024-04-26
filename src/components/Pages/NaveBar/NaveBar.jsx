@@ -59,15 +59,25 @@ const NaveBar = () => {
 
                     {
                         user ?
-                            <Link onClick={handleLogOut}>
-                                <a className="btn">Log Out</a>
-                            </Link>
+                            <>
+                                <div className="tooltip tooltip-left mr-4" data-tip={user.displayName}>
+                                    <div className="avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user.photoURL} />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <Link onClick={handleLogOut}>
+                                        <a className="btn">Log Out</a>
+                                    </Link>
+                                </div>
+                            </>
                             :
                             <Link to='/registration'>
                                 <a className="btn">LogIn/Registration</a>
                             </Link>
                     }
-
 
 
                 </div>

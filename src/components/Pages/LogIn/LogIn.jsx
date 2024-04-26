@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
 
@@ -22,15 +22,16 @@ const LogIn = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(user)
-                alert('User Log In successfully')
-                // ...
+
+                if (user) {
+                    navigate(location?.state ? location.state : '/');
+                }
             })
             .catch((error) => {
-
                 const errorMessage = error.message;
                 console.log(errorMessage)
             });
+
 
     };
 
@@ -39,10 +40,30 @@ const LogIn = () => {
 
         googleSignIn()
             .then(result => {
-                console.log(result)
-                // if (result.user) {
-                //     navigate(location?.state ? location.state : '/');
-                // }
+                const user = result.user;
+                const name = user.displayName;
+                const email = user.email;
+                const photo = user.photoURL;
+
+                const userData = {
+                    name: name,
+                    email: email,
+                    photo: photo
+                }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('from registration', data)
+                    })
+                if (result.user) {
+                    navigate(location?.state ? location.state : '/');
+                }
             }).catch((error) => {
                 const errorMessage = error.message;
                 console.log(errorMessage);
@@ -76,7 +97,9 @@ const LogIn = () => {
                         <button className="btn btn-primary">Log In</button>
                     </div>
                 </form>
-
+                <div className="text-center">
+                    <p>If you don't have already an acoount ,<Link to='/registration' className="text-blue-700 underline">please Registration  here</Link> </p>
+                </div>
                 <div className="">
                     <div className="flex gap-4">
                         <button onClick={handleGoogleLogIn}>
