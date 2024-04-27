@@ -21,7 +21,7 @@ const NaveBar = () => {
         <li><NavLink
             to="/"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "border-green-700" : ""
+                isPending ? "pending" : isActive ? "border border-green-700" : ""
             }
         >
             Home
@@ -29,10 +29,18 @@ const NaveBar = () => {
         <li><NavLink
             to="/"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "border-green-700" : ""
+                isPending ? "pending" : isActive ? "border border-green-700" : ""
             }
         >
             All Craft
+        </NavLink></li>
+        <li><NavLink
+            to="/additem"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border border-green-700" : ""
+            }
+        >
+            Add Items
         </NavLink></li>
     </>
 

@@ -12,6 +12,7 @@ import Home from './components/Pages/Home/Home.jsx';
 import LogIn from './components/Pages/LogIn/LogIn.jsx';
 import Registration from './components/Pages/Registration/Registration.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
+import AddItems from './components/Pages/AddItems/AddItems.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/registration',
         element: <Registration />
+      },
+      {
+        path: '/additem',
+        element: <AddItems />
       }
     ]
   },
