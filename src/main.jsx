@@ -45,7 +45,8 @@ const router = createBrowserRouter([
         path: '/viewDetais/:id',
         element: <PrivateRoute>
           <ViewDetails></ViewDetails>
-        </PrivateRoute>
+        </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/items')
       }
     ]
   },
