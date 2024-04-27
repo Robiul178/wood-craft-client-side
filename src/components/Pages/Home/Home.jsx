@@ -2,8 +2,13 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import image1 from '../../../assets/g1.jpg'
 import image2 from '../../../assets/g4.jpg'
 import image3 from '../../../assets/g3.jpg'
+import ShowItems from '../ShowItems/ShowItems';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
+
+    const data = useLoaderData();
+
     return (
         <div>
             <section className="h-[650px]">
@@ -66,6 +71,21 @@ const Home = () => {
                             <a href="#slide1" className="btn btn-outline text-blue-950"><FaArrowRight className='md:w-28 md:text-xl'></FaArrowRight></a>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section className='mt-20'>
+                <div className='text-center'>
+                    <h2 className='text-2xl font-bold'>POPULAR IN OUR STORE</h2>
+                    <p>Pick the most popular products from us. May you love them!</p>
+                </div>
+                <div className='grid md:grid-cols-3 mt-12 gap-4'>
+                    {
+                        data?.map(item => <ShowItems
+                            key={item._id}
+                            item={item}
+                        ></ShowItems>)
+                    }
                 </div>
             </section>
         </div>

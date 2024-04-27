@@ -13,6 +13,8 @@ import LogIn from './components/Pages/LogIn/LogIn.jsx';
 import Registration from './components/Pages/Registration/Registration.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
 import AddItems from './components/Pages/AddItems/AddItems.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
+import ViewDetails from './components/Pages/ViewDetails/ViewDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Home />,
+        loader: () => fetch('http://localhost:5000/items')
       },
       {
         path: '/login',
@@ -34,7 +37,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/additem',
-        element: <AddItems />
+        element: <PrivateRoute>
+          <AddItems />
+        </PrivateRoute>
+      },
+      {
+        path: '/viewDetais/:id',
+        element: <PrivateRoute>
+          <ViewDetails></ViewDetails>
+        </PrivateRoute>
       }
     ]
   },
