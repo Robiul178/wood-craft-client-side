@@ -27,12 +27,12 @@ const NaveBar = () => {
             Home
         </NavLink></li>
         <li><NavLink
-            to="/"
+            to="/allItems"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "border border-green-700" : ""
             }
         >
-            All Craft
+            All Items
         </NavLink></li>
         <li><NavLink
             to="/additem"

@@ -8,7 +8,9 @@ const ShowItems = ({ item }) => {
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
-                <figure><img src={photo} /></figure>
+                <figure><img src={photo}
+                    className="w-[300px] h-[300px]"
+                /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {name}

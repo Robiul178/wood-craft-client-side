@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const AddItems = () => {
@@ -48,12 +50,12 @@ const AddItems = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Items Add Successfully')
+                    toast('Items Add Successfully')
 
-                    form.reset();
                 }
             })
 
+        form.reset();
     }
 
     return (
@@ -138,10 +140,9 @@ const AddItems = () => {
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Add Items</button>
                     </div>
-
-
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };

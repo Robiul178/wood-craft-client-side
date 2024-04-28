@@ -8,6 +8,7 @@ import { useLoaderData } from 'react-router-dom';
 const Home = () => {
 
     const data = useLoaderData();
+    const filterData = data.slice(0, 6);
 
     return (
         <div>
@@ -81,7 +82,7 @@ const Home = () => {
                 </div>
                 <div className='grid md:grid-cols-3 mt-12 gap-4'>
                     {
-                        data?.map(item => <ShowItems
+                        filterData?.map(item => <ShowItems
                             key={item._id}
                             item={item}
                         ></ShowItems>)
