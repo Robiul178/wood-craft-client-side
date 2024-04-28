@@ -42,6 +42,14 @@ const NaveBar = () => {
         >
             Add Items
         </NavLink></li>
+        <li><NavLink
+            to="/myartandcraft"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border border-green-700" : ""
+            }
+        >
+            My Art&Craft
+        </NavLink></li>
     </>
 
     return (

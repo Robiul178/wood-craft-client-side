@@ -15,6 +15,7 @@ import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
 import AddItems from './components/Pages/AddItems/AddItems.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import ViewDetails from './components/Pages/ViewDetails/ViewDetails.jsx';
+import MyArtCraft from './components/Pages/MyArt&Craft/MyArtAndCraft.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
         loader: () => fetch('http://localhost:5000/items')
+      },
+      {
+        path: '/myartandcraft',
+        element: <PrivateRoute>
+          <MyArtCraft />
+        </PrivateRoute>
       }
     ]
   },

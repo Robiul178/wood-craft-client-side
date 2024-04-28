@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Registration = () => {
@@ -24,6 +26,17 @@ const Registration = () => {
             email: email,
             photo: photo,
             password: password
+        }
+
+        if (password.length < 6) {
+            toast('Password must have 6 character');
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            toast('Password must have 1 Upparcase character');
+            return;
+        } else if (!/[a-z]/.test(password)) {
+            toast('Password must have 1 lowercase character');
+            return;
         }
 
         createUser(email, password)
@@ -97,6 +110,7 @@ const Registration = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
