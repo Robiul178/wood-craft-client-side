@@ -56,10 +56,12 @@ const router = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/items')
       },
       {
-        path: '/myartandcraft/:email',
+        path: '/myartandcraft',
         element: <PrivateRoute>
           <MyArtCraft />
-        </PrivateRoute>
+        </PrivateRoute>,
+
+        // loader: () => fetch('http://localhost:5000/items')
       }
     ]
   },

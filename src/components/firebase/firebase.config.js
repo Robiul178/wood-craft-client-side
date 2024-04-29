@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBHMoosGKMksKvu6k8-PnHFOp4kZFCXuBk",
-    authDomain: "wood-wonders-cdcbc.firebaseapp.com",
-    projectId: "wood-wonders-cdcbc",
-    storageBucket: "wood-wonders-cdcbc.appspot.com",
-    messagingSenderId: "674426091851",
-    appId: "1:674426091851:web:0b686379a1a2b0e84310ce"
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

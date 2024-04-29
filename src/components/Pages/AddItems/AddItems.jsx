@@ -36,7 +36,7 @@ const AddItems = () => {
             customization: customization,
             stockStatus: stockStatus,
             userName: userName,
-            userEmail: userEmail
+            email: userEmail
         }
 
 

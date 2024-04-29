@@ -6,8 +6,8 @@ const ShowItems = ({ item }) => {
     const { _id, photo, name, description, price } = item;
 
     return (
-        <div>
-            <div className="card bg-base-100 shadow-xl">
+        <div >
+            <div className="card bg-base-100 shadow-xl md:p-10">
                 <figure><img src={photo}
                     className="w-[300px] h-[300px]"
                 /></figure>

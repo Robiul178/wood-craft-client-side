@@ -75,12 +75,12 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='mt-20'>
+            <section className='mt-20 '>
                 <div className='text-center'>
                     <h2 className='text-2xl font-bold'>POPULAR IN OUR STORE</h2>
                     <p>Pick the most popular products from us. May you love them!</p>
                 </div>
-                <div className='grid md:grid-cols-3 mt-12 gap-4'>
+                <div className='grid md:grid-cols-3 sm:p-10 mt-12 gap-4 '>
                     {
                         filterData?.map(item => <ShowItems
                             key={item._id}
