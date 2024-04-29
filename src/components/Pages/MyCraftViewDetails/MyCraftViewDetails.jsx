@@ -1,11 +1,54 @@
+// import { useContext } from 'react';
+// import { AuthContext } from '../../AuthProvider/AuthProvider';
+
+import swal from "sweetalert";
+
+const MyCraftViewDetails = ({ item, setMyItem, myItem }) => {
+    const { _id, photo, name, customization, stockStatus, rating, price } = item;
 
 
-const MyCraftViewDetails = ({ item }) => {
-    const { photo, name, customization, stockStatus, rating, price } = item;
+    const handleDelete = _id => {
 
-    const handleDeleteButton = () => {
-        console.log('deleted')
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+
+                    fetch(`http://localhost:5000/items/${_id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.deletedCount > 0) {
+                                swal("Poof! Your  item has been deleted!", {
+                                    icon: "success",
+                                });
+                                const remaining = myItem.filter(i => i._id != _id)
+                                setMyItem(remaining);
+                            }
+                        })
+
+
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+
+
+
+
+
+
+
     }
+
     const handleUpdateButton = () => {
         console.log('updated')
     }
@@ -39,7 +82,7 @@ const MyCraftViewDetails = ({ item }) => {
 
                     <div className="card-actions justify-between">
                         <button onClick={handleUpdateButton} className="btn btn-primary">Update</button>
-                        <button onClick={handleDeleteButton} className="btn btn-outline">Delete</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-outline">Delete</button>
                     </div>
                 </div>
             </div>

@@ -21,13 +21,15 @@ const MyArtAndCraft = () => {
     return (
         <div>
             <div>
-                <h2 className="text-3xl">My Art & Craft</h2>
+                <h2 className="text-3xl">My Art & Craft {myItem?.length}</h2>
             </div>
             <div className='grid md:grid-cols-2 sm:p-10 mt-12 gap-4 '>
                 {
                     myItem?.map(item => <MyCraftViewDetails
                         key={item._id}
                         item={item}
+                        myItem={myItem}
+                        setMyItem={setMyItem}
                     ></MyCraftViewDetails>)
                 }
             </div>
