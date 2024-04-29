@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 // import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import ShowItems from '../ShowItems/ShowItems'
+import MyCraftViewDetails from "../MyCraftViewDetails/MyCraftViewDetails";
 
 
 const MyArtAndCraft = () => {
@@ -20,14 +20,15 @@ const MyArtAndCraft = () => {
 
     return (
         <div>
-            <h2>My Art and craft:{myItem.length}</h2>
-
-            <div className='grid md:grid-cols-3 sm:p-10 mt-12 gap-4 '>
+            <div>
+                <h2 className="text-3xl">My Art & Craft</h2>
+            </div>
+            <div className='grid md:grid-cols-2 sm:p-10 mt-12 gap-4 '>
                 {
-                    myItem?.map(item => <ShowItems
+                    myItem?.map(item => <MyCraftViewDetails
                         key={item._id}
                         item={item}
-                    ></ShowItems>)
+                    ></MyCraftViewDetails>)
                 }
             </div>
         </div>
