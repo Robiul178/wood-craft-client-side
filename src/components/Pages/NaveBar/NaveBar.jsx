@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Tooltip } from 'react-tooltip';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const NaveBar = () => {
@@ -29,7 +31,7 @@ const NaveBar = () => {
     const handleLogOut = () => {
         userLogOut()
             .then(() => {
-                alert(' Sign-out successful.')
+                toast(' Sign-out successful.')
             }).catch(() => {
                 // An error happened.
             });
@@ -147,6 +149,7 @@ const NaveBar = () => {
 
                 </div>
             </div>
+            <ToastContainer />
         </nav>
     );
 };
