@@ -19,6 +19,8 @@ import MyArtCraft from './components/Pages/MyArt&Craft/MyArtAndCraft.jsx';
 import AllItems from './components/Pages/AllItems/AllItems.jsx';
 import Update from './components/Pages/Update/Update.jsx';
 import ArtAndCategory from './components/Pages/ArtAndCategory/ArtAndCategory.jsx';
+import Blog from './components/Pages/Blog/Blog.jsx';
+import Review from './components/Pages/Review/Review.jsx';
 
 const router = createBrowserRouter([
   {
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
         element: <ArtAndCategory />,
         loader: () => fetch('https://wood-wonders-server.vercel.app/category-items')
       },
+      {
+        path: '/blog',
+        element: <Blog />
+      },
+      {
+        path: '/review',
+        element: <Review />
+      }
     ]
   },
 ]);

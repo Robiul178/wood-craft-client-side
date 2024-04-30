@@ -1,5 +1,4 @@
-// import { useContext } from 'react';
-// import { AuthContext } from '../../AuthProvider/AuthProvider';
+import PropTypes from 'prop-types';
 
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
@@ -41,13 +40,6 @@ const MyCraftViewDetails = ({ item, setMyItem, myItem }) => {
                     swal("Your imaginary file is safe!");
                 }
             });
-
-
-
-
-
-
-
     }
 
 
@@ -90,6 +82,11 @@ const MyCraftViewDetails = ({ item, setMyItem, myItem }) => {
             </div>
         </div >
     );
+};
+MyCraftViewDetails.propTypes = {
+    item: PropTypes.string,
+    setMyItem: PropTypes.func,
+    myItem: PropTypes.func,
 };
 
 export default MyCraftViewDetails;

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 const ShowItems = ({ item }) => {
@@ -15,7 +16,7 @@ const ShowItems = ({ item }) => {
                     <h2 className="card-title">
                         {name}
                     </h2>
-                    <p>{description}</p>
+                    <p>{description.slice(0, 50)}</p>
                     <p className="font-bold">${price}</p>
                 </div>
                 <div>
@@ -28,6 +29,10 @@ const ShowItems = ({ item }) => {
             </div>
         </div >
     );
+};
+
+ShowItems.propTypes = {
+    item: PropTypes.array
 };
 
 export default ShowItems;

@@ -9,16 +9,8 @@ import { Fade } from "react-awesome-reveal";
 const ArtAndCategory = () => {
     const data = useLoaderData();
 
-    // const [categoryData, setCategoryData] = useState([data])
-
 
     const sortDataBysubcategory = (subcategory) => {
-
-        // // const myData = [...categoryData]
-        // console.log(subcategory)
-
-        // const filterData = categoryData.filter(i => console.log(i.subcategory))
-        // console.log(filterData)
 
 
         const filteredData = [];

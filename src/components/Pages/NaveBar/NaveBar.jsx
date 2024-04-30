@@ -68,6 +68,22 @@ const NaveBar = () => {
         >
             My Art&Craft
         </NavLink></li>
+        <li><NavLink
+            to='/blog'
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border border-green-700" : ""
+            }
+        >
+            Blog
+        </NavLink></li>
+        <li><NavLink
+            to='/review'
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border border-green-700" : ""
+            }
+        >
+            Review
+        </NavLink></li>
     </>
 
     return (

@@ -1,10 +1,13 @@
-// import React from 'react';
+import PropTypes from 'prop-types';
 
 const CategoryVidew = ({ d }) => {
 
 
 
     const { name, photo, description, price } = d;
+
+
+
     return (
         <div>
             <div>
@@ -16,7 +19,7 @@ const CategoryVidew = ({ d }) => {
                         <h2 className="card-title">
                             {name}
                         </h2>
-                        <p>{description}</p>
+                        <p>{description.slice(0, 20)}</p>
                         <p className="font-bold">${price}</p>
                     </div>
 
@@ -24,6 +27,10 @@ const CategoryVidew = ({ d }) => {
             </div>
         </div>
     );
+};
+
+CategoryVidew.propTypes = {
+    d: PropTypes.array
 };
 
 export default CategoryVidew;

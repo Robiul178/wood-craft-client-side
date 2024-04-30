@@ -7,6 +7,7 @@ import { useLoaderData } from 'react-router-dom';
 import ArtAndCategory from '../ArtAndCategory/ArtAndCategory';
 
 import { Fade } from "react-awesome-reveal";
+import Blog from '../Blog/Blog';
 
 
 const Home = () => {
@@ -100,6 +101,10 @@ const Home = () => {
 
             <section className='py-12'>
                 <ArtAndCategory></ArtAndCategory>
+            </section>
+
+            <section>
+                <Blog />
             </section>
 
 

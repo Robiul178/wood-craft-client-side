@@ -116,7 +116,7 @@ const LogIn = () => {
                     <p>If you don't have already an acoount ,<Link to='/registration' className="text-blue-700 underline">please Registration  here</Link> </p>
                 </div>
                 <div className="">
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 justify-center py-4">
                         <button onClick={handleGoogleLogIn}>
                             <FcGoogle className="text-2xl" />
                         </button>
