@@ -21,7 +21,7 @@ const MyCraftViewDetails = ({ item, setMyItem, myItem }) => {
             .then((willDelete) => {
                 if (willDelete) {
 
-                    fetch(`http://localhost:5000/items/${_id}`, {
+                    fetch(`https://wood-wonders-server.vercel.app/items/${_id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())

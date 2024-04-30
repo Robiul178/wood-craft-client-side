@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/items')
+        loader: () => fetch('https://wood-wonders-server.vercel.app/items')
       },
       {
         path: '/login',
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: '/allItems',
         element: <AllItems />,
-        loader: () => fetch('http://localhost:5000/items')
+        loader: () => fetch('https://wood-wonders-server.vercel.app/items')
       },
       {
         path: '/additem',
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/items')
+        loader: () => fetch('https://wood-wonders-server.vercel.app/items')
       },
       {
         path: '/myartandcraft',
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <Update />,
-        loader: ({ params }) => fetch(`http://localhost:5000/items/${params.id}`)
+        loader: ({ params }) => fetch(`https://wood-wonders-server.vercel.app/items/${params.id}`)
       }
     ]
   },

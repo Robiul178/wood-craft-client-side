@@ -49,7 +49,7 @@ const LogIn = () => {
                     email: email,
                     photo: photo
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('https://wood-wonders-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

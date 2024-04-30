@@ -42,9 +42,10 @@ const Update = () => {
             customization: customization,
             stockStatus: stockStatus
         }
+
         form.reset();
 
-        fetch(`http://localhost:5000/items/${_id}`, {
+        fetch(`https://wood-wonders-server.vercel.app/items/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

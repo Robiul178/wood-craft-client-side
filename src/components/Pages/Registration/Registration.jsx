@@ -52,7 +52,7 @@ const Registration = () => {
                 console.log(errorMessage)
             });
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://wood-wonders-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

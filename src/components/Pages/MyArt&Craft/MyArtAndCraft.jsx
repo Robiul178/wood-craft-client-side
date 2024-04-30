@@ -10,7 +10,7 @@ const MyArtAndCraft = () => {
     const [myItem, setMyItem] = useState()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myitem/${user?.email}`)
+        fetch(`https://wood-wonders-server.vercel.app/myitem/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyItem(data)
