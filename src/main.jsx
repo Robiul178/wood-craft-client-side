@@ -17,6 +17,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import ViewDetails from './components/Pages/ViewDetails/ViewDetails.jsx';
 import MyArtCraft from './components/Pages/MyArt&Craft/MyArtAndCraft.jsx';
 import AllItems from './components/Pages/AllItems/AllItems.jsx';
+import Update from './components/Pages/Update/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,11 @@ const router = createBrowserRouter([
           <MyArtCraft />
         </PrivateRoute>,
 
-        // loader: () => fetch('http://localhost:5000/items')
+      },
+      {
+        path: '/update/:id',
+        element: <Update />,
+        loader: ({ params }) => fetch(`http://localhost:5000/items/${params.id}`)
       }
     ]
   },

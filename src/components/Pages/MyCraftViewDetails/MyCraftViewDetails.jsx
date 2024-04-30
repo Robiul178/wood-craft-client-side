@@ -1,6 +1,7 @@
 // import { useContext } from 'react';
 // import { AuthContext } from '../../AuthProvider/AuthProvider';
 
+import { Link } from "react-router-dom";
 import swal from "sweetalert";
 
 const MyCraftViewDetails = ({ item, setMyItem, myItem }) => {
@@ -49,9 +50,7 @@ const MyCraftViewDetails = ({ item, setMyItem, myItem }) => {
 
     }
 
-    const handleUpdateButton = () => {
-        console.log('updated')
-    }
+
 
 
     return (
@@ -81,8 +80,11 @@ const MyCraftViewDetails = ({ item, setMyItem, myItem }) => {
                     <p className="text-green-600"> {stockStatus}</p>
 
                     <div className="card-actions justify-between">
-                        <button onClick={handleUpdateButton} className="btn btn-primary">Update</button>
+                        <button className="btn btn-primary">
+                            <Link to={`/update/${_id}`}>Update</Link>
+                        </button>
                         <button onClick={() => handleDelete(_id)} className="btn btn-outline">Delete</button>
+
                     </div>
                 </div>
             </div>
