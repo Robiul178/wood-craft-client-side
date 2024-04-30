@@ -22,7 +22,7 @@ const MyArtAndCraft = () => {
     const onClickYes = c => {
         console.log(myItem, c)
         const myItems = myItem?.find(i => i.customization == c);
-        setMyItem(myItems)
+        // setMyItem[...myItem,myItems]
     }
 
     return (

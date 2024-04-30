@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
 
-    const { logInuser, googleSignIn } = useContext(AuthContext);
+    const { logInuser, googleSignIn, githubSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate()
 
@@ -14,7 +14,6 @@ const LogIn = () => {
         event.preventDefault();
 
         const form = new FormData(event.currentTarget);
-
         const email = form.get('email')
         const password = form.get('password')
 
@@ -71,6 +70,22 @@ const LogIn = () => {
     }
 
 
+    const handleGitHubLogIn = () => {
+        githubSignIn()
+            .then((result) => {
+
+                const user = result.user;
+
+                console.log(user)
+
+            }).catch((error) => {
+
+                const errorMessage = error.message;
+                console.log(errorMessage)
+            });
+    }
+
+
 
     return (
         <div className="max-w-[800px] mx-auto mt-12">
@@ -105,8 +120,11 @@ const LogIn = () => {
                         <button onClick={handleGoogleLogIn}>
                             <FcGoogle className="text-2xl" />
                         </button>
+                        <button onClick={handleGitHubLogIn}>
+                            <BsGithub className="text-2xl" />
+                        </button>
 
-                        <BsGithub className="text-2xl" />
+
                     </div>
                 </div>
             </div>
