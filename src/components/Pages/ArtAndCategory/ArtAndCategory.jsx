@@ -2,37 +2,49 @@
 
 import { useLoaderData } from "react-router-dom";
 import CategoryVidew from "../CategoryVidew/CategoryVidew";
-import { useEffect, useState } from "react";
+// import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { Fade } from "react-awesome-reveal";
 
 const ArtAndCategory = () => {
     const data = useLoaderData();
 
-    const [categoryData, setCategoryData] = useState(data)
+    // const [categoryData, setCategoryData] = useState([data])
 
 
     const sortDataBysubcategory = (subcategory) => {
 
+        // // const myData = [...categoryData]
+        // console.log(subcategory)
 
-        useEffect(() => {
-            fetch(`https://wood-wonders-server.vercel.app/myitem/${subcategory}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                })
-        }, [])
+        // const filterData = categoryData.filter(i => console.log(i.subcategory))
+        // console.log(filterData)
+
+
+        const filteredData = [];
+        for (const item of data) {
+            if (item.subcategory_Name === subcategory) {
+                // filteredData.push(item);
+                console.log(item)
+            }
+        }
+        return filteredData;
+
 
     }
 
 
-
     return (
-        <div>
-            <h2>ArtAndCategory{data?.length}</h2>
+        <div className="md:flex justify-between">
 
             <div>
-                <div className="dropdown dropdown-bottom ">
-                    <div tabIndex={0} role="button" className="btn m-1 bg-green-600 text-white">Sort By <span>
+                <div className=" py-4 border-b-4">
+                    <Fade>
+                        <span className="text-3xl font-bold">ArtAndCategory</span>
+                    </Fade>
+                </div>
+                <div className="dropdown dropdown-bottom mt-8">
+                    <div tabIndex={0} role="button" className="btn m-1 bg-green-600 text-white">Sort By : Ctegory<span>
                         <IoIosArrowDown className='text-2xl' /></span> </div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li onClick={() => sortDataBysubcategory('Wooden Furniture & Sculptures')}><a>Wooden Furniture & Sculptures</a></li>
@@ -44,11 +56,9 @@ const ArtAndCategory = () => {
                     </ul>
                 </div>
             </div>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 gap-4">
                 {
                     data?.map(d => <CategoryVidew
-                        categoryData={categoryData}
-                        setCategoryData={setCategoryData}
                         key={d._id}
                         d={d}
                     ></CategoryVidew>)

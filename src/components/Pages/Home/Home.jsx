@@ -79,7 +79,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='mt-20 '>
+            <section className=' mt-20 '>
                 <div className='text-center'>
                     <h2 className='text-2xl font-bold'>
                         <Fade>

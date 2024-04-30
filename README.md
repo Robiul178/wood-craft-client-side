@@ -1,8 +1,25 @@
-# React + Vite
+## Website Name: Wood Wonders
+[Web Live Link](https://66214b89358a740f4ebd0699--zippy-nasturtium-bb18e8.netlify.app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## npm Packges:
 
-Currently, two official plugins are available:
+- firebase
+- prop-types
+- react-leaflet
+- react-router-dom
+- react-icons
+- react-tooltip
+- react-reveal
+- react-helmet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Features:
+- User friendly web layout
+- Eye catching banner & animation
+- Without create account user can not see items details
+- User can add , delete and update item 
+- Login Registration system
+
+
+
+
