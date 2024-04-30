@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
 
 
 const ErrorPage = () => {
     return (
         <div>
-            <h2>ErrorPage</h2>
+            <div className="text-center mt-12">
+                <h2>404 Not Found</h2>
+                <p>Sorry, the page you are looking for does not exist.</p>
+                <Link to='/'>Go To Home Page</Link>
+            </div>
         </div>
     );
 };

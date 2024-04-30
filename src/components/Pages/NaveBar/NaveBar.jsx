@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Tooltip } from 'react-tooltip';
 
 
 const NaveBar = () => {
@@ -77,18 +78,20 @@ const NaveBar = () => {
                     {
                         user ?
                             <>
-                                <div className="tooltip tooltip-left mr-4" data-tip={user.displayName}>
-                                    <div className="avatar">
-                                        <div className="w-10 rounded-full">
-                                            <img src={user.photoURL} />
-                                        </div>
-                                    </div>
+                                <div>
+                                    <a data-tooltip-id="my-tooltip" data-tooltip-place="left"><div className="w-10 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div></a>
+                                    <Tooltip id="my-tooltip" >
+                                        {user.displayName}
+                                    </Tooltip>
                                 </div>
                                 <div>
                                     <Link onClick={handleLogOut}>
                                         <a className="btn">Log Out</a>
                                     </Link>
                                 </div>
+
                             </>
                             :
                             <Link to='/registration'>

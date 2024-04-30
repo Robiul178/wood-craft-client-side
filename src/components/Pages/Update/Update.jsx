@@ -1,7 +1,9 @@
 // import React from 'react';
 
 import { useLoaderData } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Update = () => {
 
@@ -54,7 +56,9 @@ const Update = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data) {
+                    toast('Update Successfully')
+                }
             })
 
 
@@ -133,6 +137,7 @@ const Update = () => {
                     </div>
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };

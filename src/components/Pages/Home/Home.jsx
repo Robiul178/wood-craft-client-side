@@ -4,6 +4,10 @@ import image2 from '../../../assets/g4.jpg'
 import image3 from '../../../assets/g3.jpg'
 import ShowItems from '../ShowItems/ShowItems';
 import { useLoaderData } from 'react-router-dom';
+import ArtAndCategory from '../ArtAndCategory/ArtAndCategory';
+
+import { Fade } from "react-awesome-reveal";
+
 
 const Home = () => {
 
@@ -77,18 +81,28 @@ const Home = () => {
 
             <section className='mt-20 '>
                 <div className='text-center'>
-                    <h2 className='text-2xl font-bold'>POPULAR IN OUR STORE</h2>
+                    <h2 className='text-2xl font-bold'>
+                        <Fade>
+                            POPULAR IN OUR STORE
+                        </Fade>
+                    </h2>
                     <p>Pick the most popular products from us. May you love them!</p>
                 </div>
                 <div className='grid md:grid-cols-3 sm:p-10 mt-12 gap-4 '>
                     {
-                        filterData?.map(item => <ShowItems
+                        filterData.map(item => <ShowItems
                             key={item._id}
                             item={item}
                         ></ShowItems>)
                     }
                 </div>
             </section>
+
+            <section className='py-12'>
+                <ArtAndCategory></ArtAndCategory>
+            </section>
+
+
         </div>
     );
 };
